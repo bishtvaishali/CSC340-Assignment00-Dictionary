@@ -1,6 +1,6 @@
 
 public enum Type {
-	noun,
-	verb,
-	adjective
+	NOUN,
+	VERB,
+	ADJECTIVE
 }
