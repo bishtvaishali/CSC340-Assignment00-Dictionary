@@ -1,0 +1,18 @@
+
+public enum Word {
+	CSC210,
+
+	CSC220,
+
+	CSC340,
+
+	CSC413,
+
+	BOOK,
+
+	BOOKABLE,
+
+	BOOKBINDER,
+
+	BOOKCASE;
+}

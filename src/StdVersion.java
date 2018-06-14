@@ -2,33 +2,24 @@ import java.util.Scanner;
 
 public enum StdVersion {
 
-	CSC210( "CSC210 : Intro to Java.\n"+ 
-			"CSC210 : To learn Java.\n" + 
-			"CSC210 : Comfortable with Objects and Classes.\n" + 
-			"CSC210 : Ready for CSC 220."),
+	CSC210(" Intro to Java., To learn Java., Comfortable with Objects and Classes., Ready for CSC 220."),
 
-	CSC220( "CSC220 : Data Structures.\n" + 
-			"CSC220 : Ready to create complex data structures.\n" + 
-			"CSC220 : To create data structures."),
+	CSC220( " Data Structures., Ready to create complex data structures., To create data structures."),
 
-	CSC340( "CSC340 : = C++ version of CSC210 + CSC220 + more\n"+
-			"CSC340 : A CS upper division course.\n" +
-			"CSC340 : Many hours outside of class."),
+	CSC340( " = C++ version of CSC210 + CSC220 + more, A CS upper division course., Many hours outside of class."),
 
 	CSC413(),
 
-	BOOK( "Book : A set of pages.\n" + 
-		  "Book : To arrange something on a particular date."),
+	BOOK( " A set of pages., To arrange something on a particular date."),
 
-	BOOKABLE("Bookable : Can be ordered."),
+	BOOKABLE(" Can be ordered."),
 
-	BOOKBINDER("Bookbinder : A person who fastens the pages of books."),
+	BOOKBINDER(" A person who fastens the pages of books."),
 
-	BOOKCASE("Bookcase : A piece of furniture with shelves.");
+	BOOKCASE(" A piece of furniture with shelves.");
 
 
 	private String description;
-
 
 	private StdVersion() {
 	}
@@ -41,24 +32,29 @@ public enum StdVersion {
 		return description;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	public static void main(String[] args) {	
 		String description = null;
 		StdVersion courses;
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("Search: ");
+		System.out.print("-----DICTIONARY 340 Standard-----\n\nSearch:");
 
 		while(scanner.hasNextLine()) {			
 			String word = scanner.nextLine();
+			if(word.toLowerCase().equals("!q")) {
+				System.out.println("-----THANK YOU-----");
+				break;
+			}
+
 			System.out.println("|");
-			if(word.length() != 0) {
-				try {	
+
+			if(word.length() != 0) { // For every null value entered, prompt user to "enter word"
+				try {					
 					courses = StdVersion.valueOf(word.toUpperCase());
 					description = courses.getDescription();
-					System.out.println(description);
+					String[] descArr = description.split(",") ;
+					for(String arr : descArr) {
+						System.out.println(courses.name() + ": "+ arr);						
+					}			
 				}catch(Exception e) {
 					System.out.println("<Not found>");
 				}	

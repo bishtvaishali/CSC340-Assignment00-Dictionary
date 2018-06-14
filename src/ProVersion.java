@@ -59,17 +59,22 @@ public enum ProVersion {
 		String[] str;
 
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("Search: ");
+		System.out.println("-----DICTIONARY 340 Pro-----\n\nSearch:");
 
 		while(scanner.hasNextLine()) {
 			ProVersion pro = null;
 			phrase = scanner.nextLine();
 
-			System.out.println("|");
-
 			str = phrase.split("\\s+");
+			
+			if(str[0].toLowerCase().equals("!q")) {
+				System.out.println("-----THANK YOU-----");
+				break;
+			}
+			
+			System.out.println("|");
+						
 			int length = str.length;
-
 
 			if(length==1 && str[0].length()!= 0) {
 				try {
